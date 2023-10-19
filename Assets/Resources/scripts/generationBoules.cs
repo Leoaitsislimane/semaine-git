@@ -21,6 +21,7 @@ public class generationBoules : MonoBehaviour
     { 
         loadSprites();
         generateBoules();
+        StartCoroutine(descente());
     }
     
     private void loadSprites()
@@ -115,11 +116,15 @@ public class generationBoules : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
-        {
+        
+    }
+
+    IEnumerator descente()
+    {       
+            yield return new WaitForSeconds(5);
             descendreBalles();
             ajouterRangée();
             descendreBalles();
-        }
+            StartCoroutine(descente());
     }
 }

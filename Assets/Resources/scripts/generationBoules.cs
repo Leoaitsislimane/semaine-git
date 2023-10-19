@@ -10,11 +10,10 @@ public class generationBoules : MonoBehaviour
     [SerializeField] private int _hauteur= 5;
     [SerializeField] private int _longueur = 9;
     [SerializeField] private float _tailleBalle = 0.4f;
-    [SerializeField] private float _offsetX = 5.0f;
-    [SerializeField] private float _offsetY = 5.0f;
-    [SerializeField] private Sprite[] _sprites;
-    private Transform transform1;
-    private List<GameObject> balles = new List<GameObject>();
+    private float _offsetX = 5.0f;
+    private float _offsetY = 5.0f;
+    private Sprite[] _sprites;
+    private Transform transform1; 
     private float _offsetDescend = 2.5f;
     [SerializeField] private float _offsetNouvelleRangee = 5.0f;
 
@@ -66,7 +65,6 @@ public class generationBoules : MonoBehaviour
                 Rigidbody2D rb = boule.AddComponent<Rigidbody2D>();
                 reactionBalles reaction = boule.AddComponent<reactionBalles>();
                 boule.transform.localScale = new Vector3(_tailleBalle, _tailleBalle, 1.0f);
-                balles.Add(boule);
             }
         }
     }
@@ -98,15 +96,12 @@ public class generationBoules : MonoBehaviour
                     boule.tag = "Hulk"; 
                     break;
                 case 2:
-                    boule.tag = "SpiderMan";
-                    break;
-                case 3:
                     boule.tag = "IronMan";
                     break;
-                case 4:
+                case 3:
                     boule.tag = "Thor";
                     break;
-                        
+
                 default:
                     boule.tag = "Untagged";
                     break;
@@ -116,7 +111,6 @@ public class generationBoules : MonoBehaviour
             Rigidbody2D rb = boule.AddComponent<Rigidbody2D>();
             reactionBalles reaction = boule.AddComponent<reactionBalles>();
             boule.transform.localScale = new Vector3(_tailleBalle, _tailleBalle, 1.0f);
-            balles.Add(boule);
         }
 
         _hauteur++;

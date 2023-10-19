@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class attaquegant : MonoBehaviour
 {
@@ -7,10 +9,11 @@ public class attaquegant : MonoBehaviour
     private GameObject currentLigne; 
     private bool isAiming; 
     private Vector2 shootDirection; 
-    private float shootVitesse = 30f; 
-    private float _tailleBalle = 15.0f;
+    [SerializeField]private float shootVitesse = 30f; 
+    [SerializeField]private float _tailleBalle = 0.4f;
+    private Sprite[] _sprites;
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -38,12 +41,45 @@ public class attaquegant : MonoBehaviour
         }
     }
 
+    private void loadSprites()
+    {
+        _sprites = Resources.LoadAll<Sprite>("balles");
+    }
+
+    private void Start()
+    {
+        loadSprites();
+    }
+
     void ShootBubble()
     {
         GameObject balle = Instantiate(ballePrefab, transform.position, Quaternion.identity);
-        Rigidbody2D rb = balle.GetComponent<Rigidbody2D>();
         balle.transform.localScale = new Vector3(_tailleBalle, _tailleBalle, 1.0f);
+        int spriteIndex = Random.Range(0, _sprites.Length);
+        balle.GetComponent<SpriteRenderer>().sprite = _sprites[Random.Range(0, _sprites.Length)];
+        switch (spriteIndex)
+        {
+            case 0:
+                balle.name = "CaptainAmerica";
+                break;
+            case 1:
+                balle.name = "Hulk";
+                
+                break;
+            case 2:
+                balle.name = "IronMan";
+                break;
+            case 3:
+                balle.name = "Thor";
+                break;
+        }
+        CapsuleCollider2D coll = balle.AddComponent<CapsuleCollider2D>();
+        coll.isTrigger = true;
+        Rigidbody2D rb = balle.AddComponent<Rigidbody2D>();
         rb.velocity = shootDirection * shootVitesse;
+        balle.transform.localScale = new Vector3(_tailleBalle, _tailleBalle, 1.0f);
         
     }
+
+   
 }

@@ -7,20 +7,18 @@ using Random = UnityEngine.Random;
 public class generationBoules : MonoBehaviour
 {
     [SerializeField] private GameObject _boulePrefab;
-    [SerializeField] private int _hauteur= 5;
-    [SerializeField] private int _longueur = 9;
-    [SerializeField] private float _tailleBalle = 0.4f;
-    private float _offsetX = 5.0f;
-    private float _offsetY = 5.0f;
+    [SerializeField] private int _hauteur= 4;
+    [SerializeField] private int _longueur = 6;
+    [SerializeField] private float _tailleBalle = 0.7f;
+    [SerializeField]private float _offsetX = 7.0f;
+    [SerializeField]private float _offsetY = 7.0f;
     private Sprite[] _sprites;
-    private Transform transform1; 
-    private float _offsetDescend = 2.5f;
-    [SerializeField] private float _offsetNouvelleRangee = 5.0f;
+    [SerializeField]private float _offsetDescend = 3.5f;
+    [SerializeField] private float _offsetNouvelleRangee = 7.0f;
 
     // Start is called before the first frame update
     void Start()
-    {
-        transform1 = GetComponent<Transform>();
+    { 
         loadSprites();
         generateBoules();
     }
@@ -36,7 +34,7 @@ public class generationBoules : MonoBehaviour
             for (int j = 0; j < _longueur; j++)
             {
                 GameObject boule = Instantiate(_boulePrefab, transform);
-                boule.transform.position = new Vector3(transform.position.x + j * _offsetX, transform.position.y - i * _offsetY, 5);
+                boule.transform.position = new Vector3(transform.position.x + j * _offsetX, transform.position.y - i * _offsetY, 0);
                 int spriteIndex = Random.Range(0, _sprites.Length);
                 boule.GetComponent<SpriteRenderer>().sprite = _sprites[spriteIndex];
                 
@@ -69,14 +67,11 @@ public class generationBoules : MonoBehaviour
         }
     }
 
-    public void createBalles()
-    {
-        
-    }
+    
     private void descendreBalles()
     {
         
-        gameObject.transform.position = new Vector3(transform.position.x, transform.position.y - _offsetDescend, 5); 
+        gameObject.transform.position = new Vector3(transform.position.x, transform.position.y - _offsetDescend, 0); 
     }
 
     private void ajouterRangée()
@@ -84,7 +79,7 @@ public class generationBoules : MonoBehaviour
         for (int j = 0; j < _longueur; j++)
         {
             GameObject boule = Instantiate(_boulePrefab, transform);
-            boule.transform.position = new Vector3(transform.position.x + j * _offsetX, transform.position.y + _offsetNouvelleRangee, 5);
+            boule.transform.position = new Vector3(transform.position.x + j * _offsetX, transform.position.y + _offsetNouvelleRangee, 0);
             int spriteIndex = Random.Range(0, _sprites.Length);
             boule.GetComponent<SpriteRenderer>().sprite = _sprites[Random.Range(0, _sprites.Length)];
             switch (spriteIndex)
@@ -114,7 +109,7 @@ public class generationBoules : MonoBehaviour
         }
 
         _hauteur++;
-        _offsetNouvelleRangee += 5;
+        _offsetNouvelleRangee += 7;
     }
 
     // Update is called once per frame

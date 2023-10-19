@@ -1,17 +1,19 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class attaquegant : MonoBehaviour
 {
     [SerializeField] private GameObject ballePrefab; 
     [SerializeField] private GameObject lignePrefab; 
     private GameObject currentLigne; 
-    private bool isAiming; 
-    private Vector2 shootDirection; 
-    [SerializeField]private float shootVitesse = 30f; 
-    [SerializeField]private float _tailleBalle = 0.4f;
-    private Sprite[] _sprites;
+    private bool isAiming;
+    public Vector2 directionLancement; 
+    [SerializeField] public float vitesseLancement = 30f; 
+    [SerializeField]private float tailleBalle = 0.5f;
+    private Sprite[] sprites;
 
     private void Update()
     {
@@ -23,13 +25,13 @@ public class attaquegant : MonoBehaviour
 
         if (isAiming)
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            shootDirection = (mousePosition - transform.position).normalized;
+            Vector3 positionSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            directionLancement = (positionSouris - transform.position).normalized;
 
             if (currentLigne != null)
             {
                 currentLigne.transform.position = transform.position;
-                currentLigne.transform.right = shootDirection;
+                currentLigne.transform.right = directionLancement;
             }
         }
 
@@ -37,13 +39,14 @@ public class attaquegant : MonoBehaviour
         {
             isAiming = false;
             Destroy(currentLigne);
-            ShootBubble();
+            LancerBalle();
+            
         }
     }
 
     private void loadSprites()
     {
-        _sprites = Resources.LoadAll<Sprite>("balles");
+        sprites = Resources.LoadAll<Sprite>("balles");
     }
 
     private void Start()
@@ -51,20 +54,18 @@ public class attaquegant : MonoBehaviour
         loadSprites();
     }
 
-    void ShootBubble()
+    public void LancerBalle()
     {
         GameObject balle = Instantiate(ballePrefab, transform.position, Quaternion.identity);
-        balle.transform.localScale = new Vector3(_tailleBalle, _tailleBalle, 1.0f);
-        int spriteIndex = Random.Range(0, _sprites.Length);
-        balle.GetComponent<SpriteRenderer>().sprite = _sprites[Random.Range(0, _sprites.Length)];
-        switch (spriteIndex)
+        int indiceSprite = UnityEngine.Random.Range(0, sprites.Length);
+        balle.GetComponent<SpriteRenderer>().sprite = sprites[indiceSprite];
+        switch (indiceSprite)
         {
             case 0:
                 balle.name = "CaptainAmerica";
                 break;
             case 1:
                 balle.name = "Hulk";
-                
                 break;
             case 2:
                 balle.name = "IronMan";
@@ -73,13 +74,11 @@ public class attaquegant : MonoBehaviour
                 balle.name = "Thor";
                 break;
         }
-        CapsuleCollider2D coll = balle.AddComponent<CapsuleCollider2D>();
-        coll.isTrigger = true;
-        Rigidbody2D rb = balle.AddComponent<Rigidbody2D>();
-        rb.velocity = shootDirection * shootVitesse;
-        balle.transform.localScale = new Vector3(_tailleBalle, _tailleBalle, 1.0f);
-        
+        CircleCollider2D collider = balle.AddComponent<CircleCollider2D>();
+        collider.isTrigger = true;
+        Rigidbody2D rb = balle.GetComponent<Rigidbody2D>();
+        arène arène = balle.AddComponent<arène>();
+        rb.velocity = directionLancement * vitesseLancement;
+        balle.transform.localScale = new Vector3(tailleBalle, tailleBalle, 1.0f);
     }
-
-   
 }

@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Limit
+  - Hulk
+  - IronMan
+  - Thor
+  - CaptainAmerica
+  - SpiderMan
   layers:
   - Default
   - TransparentFX

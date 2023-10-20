@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class reactionBalles : MonoBehaviour
 {
+    private void Start()
+    {
+        score = FindObjectOfType<score>();
+    }
+    private score score;
     private void OnTriggerEnter2D(Collider2D other){
         switch (other.name)
         {
@@ -13,8 +18,8 @@ public class reactionBalles : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     Destroy(gameObject);
-                    
 
+                    score._score += 100;
                 }
                 else if (!gameObject.CompareTag("CaptainAmerica"))
                 {
@@ -29,6 +34,9 @@ public class reactionBalles : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     Destroy(gameObject);
+
+                    score._score += 100;
+
                 }
                 else if (!gameObject.CompareTag("Hulk"))
                 {
@@ -43,6 +51,9 @@ public class reactionBalles : MonoBehaviour
                 {
                     Destroy(other.gameObject);
                     Destroy(gameObject);
+
+                    score._score += 100;
+
                 }
                 else if (!gameObject.CompareTag("IronMan"))
                 {
@@ -58,6 +69,9 @@ public class reactionBalles : MonoBehaviour
                     
                     Destroy(other.gameObject);
                     Destroy(gameObject);
+
+                    score._score += 100;
+
                 }
                 else if (!gameObject.CompareTag("Thor"))
                 {

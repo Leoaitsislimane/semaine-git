@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,13 @@ public class score : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] public float _score = 0f;
 
+    private void Start()
+    {
+        scoreText = GetComponentInChildren<TextMeshProUGUI>();
+    }
+
     void Update()
     {
-        scoreText.text = _score.ToString();
+        scoreText.text = "Score :" + _score.ToString("");
     }
 }

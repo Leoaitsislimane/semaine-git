@@ -12,7 +12,7 @@ public class attaquegant : MonoBehaviour
     private bool isAiming;
     public Vector2 directionLancement; 
     [SerializeField] public float vitesseLancement = 30f; 
-    [SerializeField]private float tailleBalle = 0.5f;
+    [SerializeField]private float tailleBalle = 0.7f;
     private Sprite[] sprites;
 
     
@@ -83,40 +83,40 @@ public class attaquegant : MonoBehaviour
                 _currentBall.name = "Thor";
                 break;
             case 4:
-                _currentBall.name = "CaptainAmerica10";
+                _currentBall.name = "CaptainAmerica";
                 break;
             case 5:
-                _currentBall.name = "CaptainAmerica15";
+                _currentBall.name = "CaptainAmerica";
                 break;
             case 6:
-                _currentBall.name = "CaptainAmerica20";
+                _currentBall.name = "CaptainAmerica";
                 break;
             case 7:
-                _currentBall.name = "Hulk10";
+                _currentBall.name = "Hulk";
                 break;
             case 8:
-                _currentBall.name = "Hulk15";
+                _currentBall.name = "Hulk";
                 break;
             case 9:
-                _currentBall.name = "Hulk20";
+                _currentBall.name = "Hulk";
                 break;
             case 10:
-                _currentBall.name = "IronMan10";
+                _currentBall.name = "IronMan";
                 break;
             case 11:
-                _currentBall.name = "IronMan15";
+                _currentBall.name = "IronMan";
                 break;
             case 12:
-                _currentBall.name = "IronMan20";
+                _currentBall.name = "IronMan";
                 break;
             case 13:
-                _currentBall.name = "Thor10";
+                _currentBall.name = "Thor";
                 break;
             case 14:
-                _currentBall.name = "Thor15";
+                _currentBall.name = "Thor";
                 break;
             case 15:
-                _currentBall.name = "Thor20";
+                _currentBall.name = "Thor";
                 break;
         }
         _currentBall.transform.localScale = new Vector3(tailleBalle, tailleBalle, 1.0f);
@@ -127,6 +127,7 @@ public class attaquegant : MonoBehaviour
         collider.isTrigger = true;
         Rigidbody2D rb = _currentBall.GetComponent<Rigidbody2D>();
         arène arène = _currentBall.AddComponent<arène>();
+        BallePrincipale balle = _currentBall.AddComponent<BallePrincipale>();
         rb.velocity = directionLancement * vitesseLancement;
     }
 }

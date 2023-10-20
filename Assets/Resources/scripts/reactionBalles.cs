@@ -1,29 +1,71 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class reactionBalles : MonoBehaviour
 {
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private void OnTriggerEnter2D(Collider2D other){
+        switch (other.name)
+        {
+            case "CaptainAmerica":
+                if (gameObject.CompareTag("CaptainAmerica"))
+                {
+                    Destroy(other.gameObject);
+                    Destroy(gameObject);
+                    
 
-   // private void OnTriggerEnter2D(Collider2D other)
-   // {
-    //    if (other.tag == "CaptainAmerica" && gameObject.tag == "CaptainAmerica")
-   //     {
-    //        score += 100;
-    //        Destroy(other.gameObject);
-    //        Destroy(gameObject);
-//    }
+                }
+                else if (!gameObject.CompareTag("CaptainAmerica"))
+                {
+                    Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                    BallePrincipale balle = other.AddComponent<BallePrincipale>();
+                }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+                break;
+            case "Hulk":
+                if (gameObject.CompareTag("Hulk"))
+                {
+                    Destroy(other.gameObject);
+                    Destroy(gameObject);
+                }
+                else if (!gameObject.CompareTag("Hulk"))
+                {
+                    Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                    BallePrincipale balle = other.AddComponent<BallePrincipale>();
+                }
+
+                break;
+            case "IronMan":
+                if (gameObject.CompareTag("IronMan"))
+                {
+                    Destroy(other.gameObject);
+                    Destroy(gameObject);
+                }
+                else if (!gameObject.CompareTag("IronMan"))
+                {
+                    Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                    BallePrincipale balle = other.AddComponent<BallePrincipale>();
+                }
+
+                break;
+            case "Thor":
+                if (gameObject.CompareTag("Thor"))
+                {
+                    
+                    Destroy(other.gameObject);
+                    Destroy(gameObject);
+                }
+                else if (!gameObject.CompareTag("Thor"))
+                {
+                    Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                    BallePrincipale balle = other.AddComponent<BallePrincipale>();
+                }
+                break;
+        }
     }
 }

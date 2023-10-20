@@ -247,7 +247,7 @@ MonoBehaviour:
   _boulePrefab: {fileID: 4652613962723142665, guid: 0fc1604b9c4c69546a65a133a517ee38, type: 3}
   _hauteur: 4
   _longueur: 6
-  _tailleBalle: 1
+  _tailleBalle: 0.7
   _offsetX: 7
   _offsetY: 7
   _offsetDescend: 3.5
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5d1418ef9df329741ac1102dc3a0027c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e09d4c73fe7831d47a3ce32900db2f2e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1142,4 +1142,4 @@ MonoBehaviour:
   lignePrefab: {fileID: 0}
   directionLancement: {x: 0, y: 0}
   vitesseLancement: 30
-  tailleBalle: 1
+  tailleBalle: 0.7

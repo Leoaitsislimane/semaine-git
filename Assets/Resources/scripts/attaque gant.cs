@@ -46,7 +46,6 @@ public class attaquegant : MonoBehaviour
             //Destroy(currentLigne);
             LancerBalle();
             
-            
         }
     }
 
@@ -81,42 +80,6 @@ public class attaquegant : MonoBehaviour
                 break;
             case 3:
                 _currentBall.name = "Thor";
-                break;
-            case 4:
-                _currentBall.name = "CaptainAmerica10";
-                break;
-            case 5:
-                _currentBall.name = "CaptainAmerica15";
-                break;
-            case 6:
-                _currentBall.name = "CaptainAmerica20";
-                break;
-            case 7:
-                _currentBall.name = "Hulk10";
-                break;
-            case 8:
-                _currentBall.name = "Hulk15";
-                break;
-            case 9:
-                _currentBall.name = "Hulk20";
-                break;
-            case 10:
-                _currentBall.name = "IronMan10";
-                break;
-            case 11:
-                _currentBall.name = "IronMan15";
-                break;
-            case 12:
-                _currentBall.name = "IronMan20";
-                break;
-            case 13:
-                _currentBall.name = "Thor10";
-                break;
-            case 14:
-                _currentBall.name = "Thor15";
-                break;
-            case 15:
-                _currentBall.name = "Thor20";
                 break;
         }
         _currentBall.transform.localScale = new Vector3(tailleBalle, tailleBalle, 1.0f);

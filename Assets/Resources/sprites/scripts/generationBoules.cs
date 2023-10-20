@@ -196,7 +196,7 @@ public class generationBoules : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(12);
             descendreBalles();
             ajouterRangée();
             descendreBalles();

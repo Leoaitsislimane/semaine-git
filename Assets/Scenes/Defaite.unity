@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 234239894}
   - component: {fileID: 234239893}
   - component: {fileID: 234239892}
+  - component: {fileID: 234239895}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -430,6 +431,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234239890}
   m_CullTransparentMesh: 1
+--- !u!114 &234239895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234239890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f33a2c4fe141f4eaf05ff13036b5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &597349604
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +691,7 @@ GameObject:
   - component: {fileID: 1396547455}
   - component: {fileID: 1396547454}
   - component: {fileID: 1396547453}
+  - component: {fileID: 1396547456}
   m_Layer: 5
   m_Name: Retry
   m_TagString: Untagged
@@ -788,6 +802,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396547451}
   m_CullTransparentMesh: 1
+--- !u!114 &1396547456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396547451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f1f4f8c0319ab46aa5a58906fb2899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1689672239
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +825,7 @@ GameObject:
   - component: {fileID: 1689672240}
   - component: {fileID: 1689672242}
   - component: {fileID: 1689672241}
+  - component: {fileID: 1689672243}
   m_Layer: 5
   m_Name: Your score
   m_TagString: Untagged
@@ -923,6 +950,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689672239}
   m_CullTransparentMesh: 1
+--- !u!114 &1689672243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689672239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3644e6b77294344982f9f87ebd0c446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1689672241}
+  _score: 0
 --- !u!1 &2039104129
 GameObject:
   m_ObjectHideFlags: 0

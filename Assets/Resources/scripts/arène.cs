@@ -10,7 +10,11 @@ public class arène : MonoBehaviour
     {
         generationBoules.Instance.OnMove += InstanceOnOnMove;
     }
-    
+
+    private void OnDestroy()
+    {
+        generationBoules.Instance.OnMove -= InstanceOnOnMove;
+    }
 
     private void InstanceOnOnMove()
     {

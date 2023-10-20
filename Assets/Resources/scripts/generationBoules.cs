@@ -52,10 +52,10 @@ public class generationBoules : MonoBehaviour
                 switch (spriteIndex)
                 {
                     case 0:
-                        boule.tag = "CaptainAmerica";
+                        boule.tag = "CaptainAmerica"; 
                         break;
                     case 1:
-                        boule.tag = "Hulk";
+                        boule.tag = "Hulk"; 
                         break;
                     case 2:
                         boule.tag = "IronMan";
@@ -63,41 +63,9 @@ public class generationBoules : MonoBehaviour
                     case 3:
                         boule.tag = "Thor";
                         break;
-                    case 4:
-                        boule.tag = "CaptainAmerica";
-                        break;
-                    case 5:
-                        boule.tag = "CaptainAmerica";
-                        break;
-                    case 6:
-                        boule.tag = "CaptainAmerica";
-                        break;
-                    case 7:
-                        boule.tag = "Hulk";
-                        break;
-                    case 8:
-                        boule.tag = "Hulk";
-                        break;
-                    case 9:
-                        boule.tag = "Hulk";
-                        break;
-                    case 10:
-                        boule.tag = "IronMan";
-                        break;
-                    case 11:
-                        boule.tag = "IronMan";
-                        break;
-                    case 12:
-                        boule.tag = "IronMan";
-                        break;
-                    case 13:
-                        boule.tag = "Thor";
-                        break;
-                    case 14:
-                        boule.tag = "Thor";
-                        break;
-                    case 15:
-                        boule.tag = "Thor";
+                        
+                    default:
+                        boule.tag = "Untagged";
                         break;
                 }
                 CapsuleCollider2D coll = boule.AddComponent<CapsuleCollider2D>();
@@ -127,10 +95,10 @@ public class generationBoules : MonoBehaviour
             switch (spriteIndex)
             {
                 case 0:
-                    boule.tag = "CaptainAmerica";
+                    boule.tag = "CaptainAmerica"; 
                     break;
                 case 1:
-                    boule.tag = "Hulk";
+                    boule.tag = "Hulk"; 
                     break;
                 case 2:
                     boule.tag = "IronMan";
@@ -138,41 +106,9 @@ public class generationBoules : MonoBehaviour
                 case 3:
                     boule.tag = "Thor";
                     break;
-                case 4:
-                    boule.tag = "CaptainAmerica";
-                    break;
-                case 5:
-                    boule.tag = "CaptainAmerica";
-                    break;
-                case 6:
-                    boule.tag = "CaptainAmerica";
-                    break;
-                case 7:
-                    boule.tag = "Hulk";
-                    break;
-                case 8:
-                    boule.tag = "Hulk";
-                    break;
-                case 9:
-                    boule.tag = "Hulk";
-                    break;
-                case 10:
-                    boule.tag = "IronMan";
-                    break;
-                case 11:
-                    boule.tag = "IronMan";
-                    break;
-                case 12:
-                    boule.tag = "IronMan";
-                    break;
-                case 13:
-                    boule.tag = "Thor";
-                    break;
-                case 14:
-                    boule.tag = "Thor";
-                    break;
-                case 15:
-                    boule.tag = "Thor";
+
+                default:
+                    boule.tag = "Untagged";
                     break;
             }
             CapsuleCollider2D coll = boule.AddComponent<CapsuleCollider2D>();

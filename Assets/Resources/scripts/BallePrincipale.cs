@@ -6,11 +6,6 @@ using UnityEngine;
 
 public class BallePrincipale : MonoBehaviour
 {
-    private score score;
-    private void Start()
-    {
-        score = FindObjectOfType<score>();
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name != name)
@@ -23,7 +18,6 @@ public class BallePrincipale : MonoBehaviour
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
-            score._score += 100;
         }
        
     }

@@ -17,7 +17,6 @@ public class BallePrincipale : MonoBehaviour
         {
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            BallePrincipale balle = other.AddComponent<BallePrincipale>();
         }
         else if (other.name == name)
         {

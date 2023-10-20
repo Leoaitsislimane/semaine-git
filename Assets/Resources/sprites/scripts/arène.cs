@@ -8,11 +8,14 @@ public class arène : MonoBehaviour
 {
     private void Awake()
     {
-        generationBoules.Instance.OnMove += InstanceOnOnMove;
+        generationBoules.Instance.OnMove += InstanceOnMove;
     }
-    
+    private void OnDestroy()
+    {
+        generationBoules.Instance.OnMove -= InstanceOnMove;
+    }
 
-    private void InstanceOnOnMove()
+    private void InstanceOnMove()
     {
         transform.position = new Vector3(transform.position.x, transform.position.y - 7.0f, 0);
     }
@@ -22,7 +25,6 @@ public class arène : MonoBehaviour
         if (other.CompareTag("Limit"))
         {
             var rb = GetComponent<Rigidbody2D>();
-            Debug.Log("Collision");
             rb.velocity = new Vector2(-rb.velocity.x, rb.velocity.y);
         }
     }

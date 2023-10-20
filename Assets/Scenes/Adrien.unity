@@ -247,7 +247,7 @@ MonoBehaviour:
   _boulePrefab: {fileID: 4652613962723142665, guid: 0fc1604b9c4c69546a65a133a517ee38, type: 3}
   _hauteur: 4
   _longueur: 6
-  _tailleBalle: 0.7
+  _tailleBalle: 1
   _offsetX: 7
   _offsetY: 7
   _offsetDescend: 3.5
@@ -1142,4 +1142,4 @@ MonoBehaviour:
   lignePrefab: {fileID: 0}
   directionLancement: {x: 0, y: 0}
   vitesseLancement: 30
-  tailleBalle: 0.7
+  tailleBalle: 1

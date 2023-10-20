@@ -15,6 +15,15 @@ public class generationBoules : MonoBehaviour
     private Sprite[] _sprites;
     [SerializeField]private float _offsetDescend = 3.5f;
     [SerializeField] private float _offsetNouvelleRangee = 7.0f;
+    
+    public static generationBoules Instance;
+
+    public event Action OnMove;
+    
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -120,11 +129,14 @@ public class generationBoules : MonoBehaviour
     }
 
     IEnumerator descente()
-    {       
+    {
+        while (true)
+        {
             yield return new WaitForSeconds(5);
             descendreBalles();
             ajouterRangée();
             descendreBalles();
-            StartCoroutine(descente());
+            OnMove?.Invoke();
+        }
     }
 }

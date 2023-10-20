@@ -15,12 +15,17 @@ public class attaquegant : MonoBehaviour
     [SerializeField]private float tailleBalle = 0.5f;
     private Sprite[] sprites;
 
+    
+    private GameObject _currentBall;
+    private int _currentSprite;
+    
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             isAiming = true;
-            currentLigne = Instantiate(lignePrefab);
+            CreateBall();
+            //currentLigne = Instantiate(lignePrefab);
         }
 
         if (isAiming)
@@ -28,21 +33,23 @@ public class attaquegant : MonoBehaviour
             Vector3 positionSouris = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             directionLancement = (positionSouris - transform.position).normalized;
 
-            if (currentLigne != null)
-            {
-                currentLigne.transform.position = transform.position;
-                currentLigne.transform.right = directionLancement;
-            }
+            // if (currentLigne != null)
+            // {
+            //     currentLigne.transform.position = transform.position;
+            //     currentLigne.transform.right = directionLancement;
+            // }
         }
 
         if (Input.GetMouseButtonUp(0) && isAiming)
         {
             isAiming = false;
-            Destroy(currentLigne);
+            //Destroy(currentLigne);
             LancerBalle();
             
         }
     }
+
+    
 
     private void loadSprites()
     {
@@ -54,31 +61,35 @@ public class attaquegant : MonoBehaviour
         loadSprites();
     }
 
-    public void LancerBalle()
+    
+    private void CreateBall()
     {
-        GameObject balle = Instantiate(ballePrefab, transform.position, Quaternion.identity);
-        int indiceSprite = UnityEngine.Random.Range(0, sprites.Length);
-        balle.GetComponent<SpriteRenderer>().sprite = sprites[indiceSprite];
-        switch (indiceSprite)
+        _currentBall = Instantiate(ballePrefab, transform.position, Quaternion.identity);
+        _currentSprite = UnityEngine.Random.Range(0, sprites.Length);
+        _currentBall.GetComponent<SpriteRenderer>().sprite = sprites[_currentSprite];
+        switch (_currentSprite)
         {
             case 0:
-                balle.name = "CaptainAmerica";
+                _currentBall.name = "CaptainAmerica";
                 break;
             case 1:
-                balle.name = "Hulk";
+                _currentBall.name = "Hulk";
                 break;
             case 2:
-                balle.name = "IronMan";
+                _currentBall.name = "IronMan";
                 break;
             case 3:
-                balle.name = "Thor";
+                _currentBall.name = "Thor";
                 break;
         }
-        CircleCollider2D collider = balle.AddComponent<CircleCollider2D>();
+        _currentBall.transform.localScale = new Vector3(tailleBalle, tailleBalle, 1.0f);
+    }
+    public void LancerBalle()
+    {
+        CircleCollider2D collider = _currentBall.AddComponent<CircleCollider2D>();
         collider.isTrigger = true;
-        Rigidbody2D rb = balle.GetComponent<Rigidbody2D>();
-        arène arène = balle.AddComponent<arène>();
+        Rigidbody2D rb = _currentBall.GetComponent<Rigidbody2D>();
+        arène arène = _currentBall.AddComponent<arène>();
         rb.velocity = directionLancement * vitesseLancement;
-        balle.transform.localScale = new Vector3(tailleBalle, tailleBalle, 1.0f);
     }
 }

@@ -55,6 +55,7 @@ public class reactionBalles : MonoBehaviour
             case "Thor":
                 if (gameObject.CompareTag("Thor"))
                 {
+                    
                     Destroy(other.gameObject);
                     Destroy(gameObject);
                 }

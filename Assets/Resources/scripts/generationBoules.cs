@@ -98,12 +98,9 @@ public class generationBoules : MonoBehaviour
                     boule.tag = "Hulk"; 
                     break;
                 case 2:
-                    boule.tag = "SpiderMan";
-                    break;
-                case 3:
                     boule.tag = "IronMan";
                     break;
-                case 4:
+                case 3:
                     boule.tag = "Thor";
                     break;
                         
